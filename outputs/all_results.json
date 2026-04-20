@@ -1,0 +1,148 @@
+{
+  "ngram": {
+    "ngram_results": {
+      "1": {
+        "val": 660.8084171453306,
+        "test": 661.1588721282026
+      },
+      "2": {
+        "val": 1574.8059906591336,
+        "test": 1668.7483050136443
+      },
+      "3": {
+        "val": 6727.860580958369,
+        "test": 6973.318503218313
+      }
+    },
+    "gpt2_pp_smoke": 79.42,
+    "smoothing_ablation": {
+      "0.01": 512.4068305034789,
+      "0.1": 712.6349703160744,
+      "0.5": 1217.068856487029,
+      "1.0": 1630.5731848576854,
+      "2.0": 2228.5354076887534,
+      "5.0": 3374.1349852176013
+    },
+    "sample_sentences": [
+      "thence senden heretofore embarking lemures hates skilfully famine j neue unwittingly law es seide panopeus edeln urgent works stands unmuth fed saluted ungentle raw iobates",
+      "both tarnkappe shadowy einen krone ii portion snapped beut always supernatural hof setze abiding hyades round disobeyed wart unkundig amount allowed marrying wailing goods deutscher",
+      "when we atrides bellerophon superbus schaft protectress favoured oracles order neighbouring common hips gunst rufen zerbrochen wears matters husbands enthralled announced alten insolent finery golden-haired",
+      "deeply matthiae gewiss ones peleus axe-blades aegaean supremacy emblems domed ziehen intruders supplicating ivy-leaves piling cling pherae tief lob schlecht prudence avow semblance notices fairer",
+      "dearly blinded hagnen college back hardiness vergangen speckled shaped different malicious erkannte copper body destined vied sturmes sprinkle speckled darauf features peopled sat teufels travellers",
+      "one schlimm soothe wanton schiffen versions amazonian instead warder polyhymnia universally brauchten intertwined ear materially mystery aegae deutschland erschlugen verbarg share-beam compel sounding champion pallas",
+      "thats stralen kannte enacted ab private intruders sentence girding shore equal spent saluted heimathlosen manly ransom dann messgesang spots enlisted spinning realms t fosterlings betray",
+      "famous cloak popular baths makes gesondert attended leaving antiope hohem banquets besitzt heunen strophische burn dining perchance waxeth nationalepos halbvers wohlbewahrt aristomachus therein ever-watchful chin",
+      "dankwart wherewithal caduceus reserve belly earth-encircling zwei dennoch plagued infamous impiety kriemhilde dank succeeded beschlagen domain aiding entbietet headed unmixed godhead bravery elsewhither yoke avenged",
+      "if glauben challenged thunderbolts achaean lastly unfortunate begotten metaneira pains appeared goddesses repute immediately rush coming dragon's bowing leaned vertrieben notable sick grain schwerter bleibet"
+    ]
+  },
+  "nb": {
+    "nb_results": {
+      "NB \u03b1=1.0": {
+        "accuracy": 0.990521327014218
+      },
+      "NB \u03b1=0.001": {
+        "accuracy": 0.9976303317535545
+      },
+      "SVM (LinearSVC)": {
+        "accuracy": 1.0
+      }
+    },
+    "class_balance": {
+      "hostile": 3329,
+      "habitable": 42
+    }
+  },
+  "story_quality": [
+    {
+      "n_words": 90,
+      "n_unique": 89,
+      "ttr": 0.9888888888888889,
+      "n_sentences": 4,
+      "avg_sent_len": 24.5,
+      "archetype": "myth",
+      "planet": "K2-32 d"
+    },
+    {
+      "n_words": 93,
+      "n_unique": 90,
+      "ttr": 0.967741935483871,
+      "n_sentences": 5,
+      "avg_sent_len": 19.6,
+      "archetype": "gas",
+      "planet": "Kepler-68 d"
+    },
+    {
+      "n_words": 150,
+      "n_unique": 147,
+      "ttr": 0.98,
+      "n_sentences": 5,
+      "avg_sent_len": 29.8,
+      "archetype": "fire",
+      "planet": "TOI-5422 b"
+    },
+    {
+      "n_words": 172,
+      "n_unique": 161,
+      "ttr": 0.936046511627907,
+      "n_sentences": 5,
+      "avg_sent_len": 34.4,
+      "archetype": "ice",
+      "planet": "K2-26 b"
+    },
+    {
+      "n_words": 182,
+      "n_unique": 176,
+      "ttr": 0.967032967032967,
+      "n_sentences": 6,
+      "avg_sent_len": 30.333333333333332,
+      "archetype": "fire",
+      "planet": "WASP-5 b"
+    },
+    {
+      "n_words": 166,
+      "n_unique": 165,
+      "ttr": 0.9939759036144579,
+      "n_sentences": 5,
+      "avg_sent_len": 34.0,
+      "archetype": "myth",
+      "planet": "TOI-1742 b"
+    },
+    {
+      "n_words": 178,
+      "n_unique": 173,
+      "ttr": 0.9719101123595506,
+      "n_sentences": 7,
+      "avg_sent_len": 25.0,
+      "archetype": "myth",
+      "planet": "TOI-5076 b"
+    },
+    {
+      "n_words": 170,
+      "n_unique": 165,
+      "ttr": 0.9705882352941176,
+      "n_sentences": 5,
+      "avg_sent_len": 34.6,
+      "archetype": "myth",
+      "planet": "Kepler-94 b"
+    },
+    {
+      "n_words": 168,
+      "n_unique": 162,
+      "ttr": 0.9642857142857143,
+      "n_sentences": 9,
+      "avg_sent_len": 18.555555555555557,
+      "archetype": "myth",
+      "planet": "Kepler-684 b"
+    },
+    {
+      "n_words": 95,
+      "n_unique": 93,
+      "ttr": 0.9789473684210527,
+      "n_sentences": 3,
+      "avg_sent_len": 34.333333333333336,
+      "archetype": "gas",
+      "planet": "Kepler-424 b"
+    }
+  ]
+}

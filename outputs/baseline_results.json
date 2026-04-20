@@ -1,0 +1,34 @@
+{
+  "ngram": {
+    "ngram_1": {
+      "n": 1,
+      "val_perplexity": 660.8084171453306,
+      "test_perplexity": 661.1588721282026
+    },
+    "ngram_2": {
+      "n": 2,
+      "val_perplexity": 1574.8059906591336,
+      "test_perplexity": 1668.7483050136443
+    },
+    "ngram_3": {
+      "n": 3,
+      "val_perplexity": 6727.860580958369,
+      "test_perplexity": 6973.318503218313
+    }
+  },
+  "naive_bayes": {
+    "nb_accuracy": 0.990521327014218,
+    "nb_confusion": [
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        418
+      ]
+    ],
+    "svm_accuracy": 1.0,
+    "svm_habitable_f1": 1.0
+  }
+}

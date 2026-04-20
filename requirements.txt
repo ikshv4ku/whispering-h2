@@ -1,0 +1,37 @@
+# ────────────────────────────────────────────────────────────────
+#  Exoplanet Mythos Generator — Requirements
+#  CST-106 Applications of NLP  |  whispering-h2
+# ────────────────────────────────────────────────────────────────
+# Core ML / DL
+torch>=2.1.0
+transformers>=4.38.0
+datasets>=2.18.0
+accelerate>=0.27.0
+peft>=0.10.0                  # for optional LoRA fine-tuning
+
+# Classical NLP / baselines
+scikit-learn>=1.4.0
+nltk>=3.8.1
+spacy>=3.7.0
+# After install run: python -m spacy download en_core_web_sm
+
+# Data handling
+pandas>=2.2.0
+numpy>=1.26.0
+requests>=2.31.0
+tqdm>=4.66.0
+
+# Evaluation metrics
+sacrebleu>=2.4.0
+rouge-score>=0.1.2
+
+# Visualisation
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Notebook support
+ipykernel>=6.29.0
+ipywidgets>=8.1.0
+
+# Utilities
+PyYAML>=6.0.1

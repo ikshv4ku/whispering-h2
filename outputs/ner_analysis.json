@@ -1,0 +1,104 @@
+{
+  "n_stories": 10,
+  "total_entities": 26,
+  "avg_entities_per_story": 2.6,
+  "avg_density_per_100_tokens": 3.5612692590252193,
+  "entity_type_counts": {
+    "CARDINAL": 7,
+    "ORDINAL": 2,
+    "TIME": 1,
+    "ORG": 6,
+    "DATE": 2,
+    "FAC": 1,
+    "LOC": 1,
+    "PRODUCT": 1,
+    "WORK_OF_ART": 1,
+    "PERSON": 3,
+    "EVENT": 1
+  },
+  "top_20_entities": [
+    [
+      "two",
+      1
+    ],
+    [
+      "second",
+      1
+    ],
+    [
+      "four",
+      1
+    ],
+    [
+      "half",
+      1
+    ],
+    [
+      "daytime hours",
+      1
+    ],
+    [
+      "github",
+      1
+    ],
+    [
+      "years",
+      1
+    ],
+    [
+      "first",
+      1
+    ],
+    [
+      "io/saturn",
+      1
+    ],
+    [
+      "jupiter",
+      1
+    ],
+    [
+      "saturn",
+      1
+    ],
+    [
+      "one",
+      1
+    ],
+    [
+      "solar power needs to be an option in the space between a system",
+      1
+    ],
+    [
+      "doesn",
+      1
+    ],
+    [
+      "\u624b\u6b21 \u9633\u9662\u505a\u4e2d\u8a00\u4e14\u540d\u4e00\u6b7b",
+      1
+    ],
+    [
+      "solar wind could actually work",
+      1
+    ],
+    [
+      "baeza-sengraventsevius",
+      1
+    ],
+    [
+      "4",
+      1
+    ],
+    [
+      "windows 10",
+      1
+    ],
+    [
+      "7",
+      1
+    ]
+  ],
+  "known_myth_entities": [],
+  "planet_name_fp_count": 0,
+  "false_positive_names": {}
+}

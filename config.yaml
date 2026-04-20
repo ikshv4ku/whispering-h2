@@ -1,0 +1,131 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║       Exoplanet Mythos Generator — Master Config             ║
+# ║  All hyper-parameters live here; import with load_config()   ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# ─── Reproducibility ──────────────────────────────────────────
+seed: 42
+
+# ─── Paths ────────────────────────────────────────────────────
+paths:
+  raw_dir:        "data/raw"
+  processed_dir:  "data/processed"
+  outputs_dir:    "outputs"
+  checkpoints_dir: "checkpoints"
+  stories_dir:    "outputs/stories"
+  attention_dir:  "outputs/attention"
+
+# ─── NASA Exoplanet Archive (TAP) ─────────────────────────────
+nasa:
+  tap_url: "https://exoplanetarchive.ipac.caltech.edu/TAP/sync"
+  # Columns to fetch from the ps (Planetary Systems) table
+  columns:
+    - pl_name          # Planet Name
+    - pl_masse         # Planet Mass (Earth masses)
+    - pl_rade          # Planet Radius (Earth radii)
+    - pl_orbper        # Orbital Period (days)
+    - pl_eqt           # Equilibrium Temperature (K)
+    - pl_orbeccen      # Orbital Eccentricity
+    - st_spectype      # Host Star Spectral Type
+    - st_teff          # Stellar Effective Temperature (K)
+    - st_lum           # Stellar Luminosity (log solar)
+    - sy_dist          # Distance from Earth (parsecs)
+    - discoverymethod  # Detection method (transit, RV, etc.)
+  max_rows: 6000
+
+# ─── Mythology Corpus ─────────────────────────────────────────
+corpus:
+  gutenberg_ids:
+    - 22381   # Bulfinch's Age of Fable
+    - 14915   # Mythology by Hamilton (Similar public domain text)
+    - 1727    # The Odyssey (Homer)
+    - 1728    # Iliad (Homer)
+    - 348     # Norse Mythology
+  min_sentence_len: 5    # tokens
+  max_sentence_len: 200  # tokens
+  vocab_size: 10000      # for n-gram vocabulary
+
+# ─── Data Splits ──────────────────────────────────────────────
+splits:
+  planet_train: 0.80
+  planet_val:   0.10
+  planet_test:  0.10
+  text_train:   0.90
+  text_val:     0.05
+  text_test:    0.05
+  pairs_train:  10000   # planet→story pairs for LM fine-tuning
+  pairs_val:    1000
+  pairs_test:   1000
+
+# ─── Feature Engineering ──────────────────────────────────────
+features:
+  temp_hot_threshold:    1000   # K  → label 'hot'
+  temp_cold_threshold:   200    # K  → label 'icy'
+  radius_giant_threshold: 4.0   # R_earth → label 'giant'
+  period_short_threshold: 10.0  # days → label 'short_year'
+  habitable_temp_min:    200    # K
+  habitable_temp_max:    350    # K
+  habitable_radius_max:  2.5    # R_earth
+
+# ─── N-gram Baseline (Lab A4) ─────────────────────────────────
+ngram:
+  orders: [1, 2, 3]    # unigram, bigram, trigram
+  smoothing_alpha: 1.0  # Laplace add-one smoothing
+  unk_threshold: 2      # words appearing < this → <unk>
+  num_sample_sentences: 20
+
+# ─── Naïve Bayes Classifier (Lab A3) ──────────────────────────
+naive_bayes:
+  smoothing_alpha: 1.0           # Laplace
+  max_features: 5000             # CountVectorizer max features
+  ngram_range: [1, 2]            # unigrams + bigrams
+
+# ─── Transformer / GPT-2 Fine-tuning (Lab A7/A8) ──────────────
+transformer:
+  model_name: "gpt2"             # gpt2 | gpt2-medium | gpt2-large
+  latent_dim: 128                # MLP encoder output dim
+  latent_hidden: 256             # MLP encoder hidden dim
+  max_length: 512                # max token sequence length
+  # Special tokens added to vocabulary
+  special_tokens:
+    - "<PAD>"
+    - "<myth>"
+    - "<fire>"
+    - "<water>"
+    - "<ice>"
+    - "<gas>"
+    - "<PLANET>"
+    - "<STAR>"
+    - "<FEAT>"
+
+# ─── Training (Lab A8) ────────────────────────────────────────
+training:
+  epochs: 5
+  batch_size: 16
+  learning_rate: 1.0e-5
+  weight_decay: 0.01
+  grad_clip: 1.0
+  warmup_steps: 100
+  early_stopping_patience: 2
+  fp16: true                     # mixed precision if CUDA available
+  save_every_epoch: true
+
+# ─── Generation ───────────────────────────────────────────────
+generation:
+  max_new_tokens: 300
+  temperature: 0.85
+  top_p: 0.92
+  top_k: 50
+  repetition_penalty: 1.3
+  num_return_sequences: 1
+
+# ─── Evaluation ───────────────────────────────────────────────
+evaluation:
+  bleu_max_ngram: 4
+  rouge_types: ["rouge1", "rouge2", "rougeL"]
+  style_clf_c: 1.0               # SVM regularisation
+  fidelity_keywords:             # per feature → expected story keywords
+    is_hot:   ["fire", "flame", "inferno", "scorched", "blaze", "molten"]
+    is_icy:   ["frost", "ice", "frozen", "glacial", "cold", "blizzard"]
+    is_giant: ["titan", "colossus", "great", "massive", "enormous", "vast"]
+  ner_n_samples: 20              # stories to run NER on
