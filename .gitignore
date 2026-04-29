@@ -5,3 +5,5 @@ src/__pycache__/
 notebooks/__pycache__/
 *.pyc
 .env
+checkpoints/
+*.pt
