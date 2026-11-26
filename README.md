@@ -23,6 +23,20 @@ A planet with an equilibrium temperature of **1 740 K** and a radius of **11 Re*
 
 ---
 
+## Results at a glance
+
+| Training curves (loss and perplexity) | Summary of all models |
+|:---:|:---:|
+| ![Training curves](outputs/04_training_curves.png) | ![Summary table](outputs/11_summary_table.png) |
+
+| GPT-2 attention, layer 5 | Content fidelity of generated myths |
+|:---:|:---:|
+| ![Attention heatmap](outputs/attention/attention_layer05.png) | ![Content fidelity](outputs/07_content_fidelity.png) |
+
+Sample generated stories live in [`outputs/stories/`](outputs/stories/).
+
+---
+
 ## Project Structure
 
 ```
@@ -64,7 +78,8 @@ whispering-h2/
 ### 1. Install dependencies
 
 ```bash
-cd /home/pradyuman/whispering-h2
+git clone https://github.com/ikshv4ku/whispering-h2.git
+cd whispering-h2
 pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ```
